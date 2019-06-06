@@ -1,0 +1,92 @@
+<html>
+    <head><title>2.2</title></head>
+    <style>
+        body {
+            color: white;
+            background-color: black;
+            text-align: center;
+        }
+        table {
+            text-align : center;
+            font-size: 25px;
+            border: 2px;
+            padding: 3%;
+        }
+        th , td {
+            border: 2px;
+            padding: 5px;
+            margin: 1px;
+        }
+    </style>
+    <body>
+        <h1>List Of Students</h1>
+        <center>
+            <input type="text" id="student" placeholder="Search...">
+            <input type="button" value="Go!" id="go">
+        <table id="t1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Roll No.</th>
+                    <th>Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Prakhar Neema</td>
+                    <td>180526</td>
+                    <td>Y18</td>
+                </tr>
+                <tr>
+                    <td>K. Krishna</td>
+                    <td>180334</td>
+                    <td>Y18</td>
+                </tr>
+                <tr>
+                    <td>Abhishek Mittal</td>
+                    <td>180022</td>
+                    <td>Y18</td>
+                </tr>
+                <tr>
+                    <td>Abhay Kaushik</td>
+                    <td>180012</td>
+                    <td>Y18</td>
+                </tr>
+                <tr>
+                    <td>Sarthak Dubey</td>
+                    <td>180625</td>
+                    <td>Y18</td>
+                </tr>
+                <tr>
+                    <td>Sarthak Kapoor</td>
+                    <td>180630</td>
+                    <td>Y18</td>
+                </tr>
+                <tr>
+                    <td>Tanmay Yadav</td>
+                    <td>170731</td>
+                    <td>Y17</td>
+                </tr>
+                <tr>
+                    <td>Yugesh Kothari</td>
+                    <td>180765</td>
+                    <td>Y17</td>
+                </tr> 
+            </tbody>                                           
+        </table>
+        </center>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#go').click(function() {
+                $('tbody tr').css('display', '');
+                $('tbody tr').filter(function() {
+                    return (
+                        !$(this).text().toUpperCase().includes($('#student').val().toUpperCase())
+                    )
+                }).css('display', 'none');
+            });
+        });
+    </script>
+</html>

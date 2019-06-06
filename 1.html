@@ -1,0 +1,86 @@
+<html>
+<head>
+    <title>2.1</title>
+</head>
+<body>
+    <style>
+        body {
+            background-color: rgb(58,58,58);
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 40px;
+        }
+        div {
+            box-align: center;
+            margin-top: 1%;
+            width: 100%;
+            height: 90%;
+            background-image: url('https://www.inature.it/img/public/2013/sfondo/sf_prato_modified.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            text-align: center;
+            animation-name: back;
+            animation-duration: 60s;
+        }
+        #next, #prev {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            color: white;
+            background-color: rgb(58,58,58);
+            border-color: rgb(58,58,58);
+            border-top-color: rgb(58,58,58);
+        }
+        #next:hover , #prev:hover {
+            background-color: rgb(40,40,40);
+            border-color: rgb(40,40,40);
+        }
+        @keyframes back {
+            0% {background-image: url('https://www.inature.it/img/public/2013/sfondo/sf_prato_modified.jpg');}
+            25% {background-image: url('http://4everstatic.com/pictures/nature/plants/daisies,-meadow,-grass,-sky,-clouds-147320.jpg');}
+            50% {background-image: url('https://i.pinimg.com/originals/df/36/65/df3665a3d2bcf459578b5ef65038ed37.jpg');}
+            75% {background-image: url('https://i.redd.it/5ubq6jf2jgx01.jpg');}
+        }
+    </style>    
+    <h1>Carousel</h1>
+    <div id="div1" name="div1">
+        <p id="p1">&nbsp;</p>
+        <input type="button" name="prev" id="prev" value="<" onclick="prev()">&nbsp;
+        <input type="button" name="next" id="next" value=">" onclick="next()">
+    </div>
+    <script>
+        var count = 0;
+        function backimg() {
+            if(count === 0){
+                document.getElementById('div1').style.backgroundImage = 'url(https://www.inature.it/img/public/2013/sfondo/sf_prato_modified.jpg)';
+            }
+            if(count === 1){
+                document.getElementById('div1').style.backgroundImage = 'url(http://4everstatic.com/pictures/nature/plants/daisies,-meadow,-grass,-sky,-clouds-147320.jpg)';
+            }
+            if(count === 2){
+                document.getElementById('div1').style.backgroundImage = 'url(https://i.pinimg.com/originals/df/36/65/df3665a3d2bcf459578b5ef65038ed37.jpg)';
+            }
+            if(count === 3){
+                document.getElementById('div1').style.backgroundImage = 'url(https://i.redd.it/5ubq6jf2jgx01.jpg)';
+            }
+        }
+
+        function next(){
+            count = (count+1)%4;
+            backimg();
+        }
+        function prev(){
+            if(count === 0) count = 3;
+            else count = (count-1);
+            backimg();
+        }
+        // setInterval(function(){
+        //     count = (count+1)%4;
+        //     backimg();
+        // }, 5000);
+        
+    </script>
+</body>
+</html>

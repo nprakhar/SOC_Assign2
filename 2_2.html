@@ -1,0 +1,102 @@
+<html>
+    <head><title>2.3</title></head>
+    <style>
+        body {
+            color: white;
+            background-color: black;
+            text-align: center;
+        }
+        table {
+            text-align : center;
+            font-size: 25px;
+            border: 2px;
+            padding: 3%;
+        }
+        th , td {
+            border: 2px;
+            padding: 5px;
+            margin: 1px;
+        }
+        input {
+            height: 30px;
+            font-size: 20px;
+        }
+    </style>
+    <body>
+        <h1>List Of Students</h1>
+        <center>
+                <input type="text" id="student" placeholder="Search...">
+                <input type="button" value="Go!" onclick="search()">
+        <table id='t1'>
+            <tr>
+                <th>Name</th>
+                <th>Roll No.</th>
+                <th>Year</th>
+            </tr>
+            <span id='hidden'>
+            <tr id="1">
+                <td>Prakhar Neema</td>
+                <td>180526</td>
+                <td>Y18</td>
+            </tr>
+            <tr id="2">
+                <td>K. Krishna</td>
+                <td>180334</td>
+                <td>Y18</td>
+            </tr>
+            <tr id="3">
+                <td>Abhishek Mittal</td>
+                <td>180022</td>
+                <td>Y18</td>
+            </tr>
+            <tr id="4">
+                <td>Abhay Kaushik</td>
+                <td>180012</td>
+                <td>Y18</td>
+            </tr>
+            <tr id="5">
+                <td>Sarthak Dubey</td>
+                <td>180625</td>
+                <td>Y18</td>
+             </tr>
+             <tr id="6">
+                <td>Sarthak Kapoor</td>
+                <td>180630</td>
+                <td>Y18</td>
+            </tr>
+            <tr id="7">
+                <td>Tanmay Yadav</td>
+                <td>170731</td>
+                <td>Y17</td>
+            </tr>
+            <tr id="8">
+                <td>Yugesh Kothari</td>
+                <td>180765</td>
+                <td>Y17</td>
+            </tr>          
+        </span>                                
+        </table>
+        </center>
+        <script>
+            function search() {
+              var input, convert, table, tr, td, i, txt;
+              input = document.getElementById("student");
+              convert = input.value.toUpperCase();
+              table = document.getElementById("t1");
+              tr = table.getElementsByTagName("tr");
+            
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                  txt = td.textContent || td.innerText;
+                  if (txt.toUpperCase().indexOf(convert) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                } 
+              }
+            }
+            </script>
+    </body>
+</html>
